@@ -5,7 +5,7 @@ class OurTheme {
   Color prim = const Color.fromRGBO(76, 100, 217, 5);
   Color bg = const Color.fromRGBO(90, 200, 250, 4);
   Color text = Colors.black;
-  ThemeData buildTheme() {
+  ThemeData get buildTheme {
     return ThemeData(
         canvasColor: bg,
         primaryColor: prim,
