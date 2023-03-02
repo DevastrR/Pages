@@ -7,26 +7,28 @@ class OurTheme {
   Color text = Colors.black;
   ThemeData get buildTheme {
     return ThemeData(
-        canvasColor: bg,
-        primaryColor: prim,
-        secondaryHeaderColor: text,
-        inputDecorationTheme: InputDecorationTheme(
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20.0),
-            borderSide: BorderSide(color: bg),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20.0),
-            borderSide: BorderSide(color: bg),
-          ),
+      canvasColor: bg,
+      primaryColor: prim,
+      secondaryHeaderColor: text,
+      inputDecorationTheme: InputDecorationTheme(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0),
+          borderSide: BorderSide(color: bg),
         ),
-        buttonTheme: ButtonThemeData(
-          buttonColor: bg,
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-          minWidth: 200,
-          height: 40.0,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-        ));
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0),
+          borderSide: BorderSide(color: bg),
+        ),
+      ),
+      buttonTheme: ButtonThemeData(
+        buttonColor: bg,
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        minWidth: 200,
+        height: 40.0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
+      ),
+    );
   }
 }
