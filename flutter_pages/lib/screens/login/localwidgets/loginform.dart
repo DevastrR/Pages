@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pages/screens/home/home.dart';
 import 'package:flutter_pages/screens/signup/signup.dart';
 import 'package:flutter_pages/widgets/our_container.dart';
 
-class OurLoginForm extends StatelessWidget {
+class OurLoginForm extends StatefulWidget {
   const OurLoginForm({super.key});
+
+  @override
+  State<OurLoginForm> createState() => _OurLoginFormState();
+}
+
+class _OurLoginFormState extends State<OurLoginForm> {
   @override
   Widget build(BuildContext context) {
     return OurContainer(
@@ -49,7 +56,11 @@ class OurLoginForm extends StatelessWidget {
                     fontSize: 20.0),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+              ));
+            },
           ),
           TextButton(
               child: const Text("Don't have an account? Sign Up"),

@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pages/screens/login/login.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_pages/root/root.dart';
 import 'package:flutter_pages/utils/our_theme.dart';
 
-void main() => runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
-  final OurTheme _theme = OurTheme();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: _theme.buildTheme,
-      home: const OurLogin(),
+      theme: OurTheme().buildTheme,
+      home: const OurRoot(),
     );
   }
 }
