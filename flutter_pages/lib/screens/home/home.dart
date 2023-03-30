@@ -31,51 +31,143 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          const Padding(
-            padding: EdgeInsets.all(20.0),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
             child: OurContainer(
-              child: Text("1"),
+              child: Column(
+                children: <Widget>[
+                  const Text(
+                    "Resource 1",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 40.0),
+                      child: Text("Lesgooo"),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(20.0),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
             child: OurContainer(
-              child: Text("2"),
+              child: Column(
+                children: <Widget>[
+                  const Text(
+                    "Resource 2",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 40.0),
+                      child: Text("Lesgooo"),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(20.0),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
             child: OurContainer(
-              child: Text("3"),
+              child: Column(
+                children: <Widget>[
+                  const Text(
+                    "Resource 3",
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ButtonStyle(
+                      shape: MaterialStateProperty.all(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                    ),
+                    onPressed: () {},
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 40.0),
+                      child: Text("Lesgooo"),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
           Padding(
             padding:
-                const EdgeInsets.symmetric(horizontal: 100.0, vertical: 15.0),
+                const EdgeInsets.symmetric(horizontal: 120.0, vertical: 15.0),
             child: ElevatedButton(
+              style: ButtonStyle(
+                shape: MaterialStateProperty.all(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+              ),
               onPressed: () {},
               child: const Text("data"),
             ),
           ),
+          const SizedBox(
+            height: 200,
+          ),
           Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
+            child: Align(
+              alignment: Alignment.bottomCenter,
               child: ElevatedButton(
-                  onPressed: () {
-                    _signOut(context);
-                  },
-                  child: const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 100),
-                    child: Text(
-                      "Sign Out",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15.0),
+                onPressed: () {
+                  _signOut(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  side: const BorderSide(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  backgroundColor: const Color.fromRGBO(90, 200, 250, 4),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 90),
+                  child: Text(
+                    "Sign Out",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
                     ),
-                  )),
+                  ),
+                ),
+              ),
             ),
-          )
+          ),
         ],
       ),
     );

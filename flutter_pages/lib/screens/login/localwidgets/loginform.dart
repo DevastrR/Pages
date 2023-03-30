@@ -46,6 +46,13 @@ class _OurLoginFormState extends State<OurLoginForm> {
             height: 20.0,
           ),
           ElevatedButton(
+            style: ButtonStyle(
+              shape: MaterialStateProperty.all(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 100),
               child: Text(
