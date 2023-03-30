@@ -26,7 +26,7 @@ class OurTheme {
         minWidth: 200,
         height: 40.0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.0),
+          borderRadius: BorderRadius.circular(40.0),
         ),
       ),
     );

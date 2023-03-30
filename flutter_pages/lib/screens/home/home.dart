@@ -5,11 +5,31 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_pages/utils/auth.dart';
 import 'package:flutter_pages/widgets/our_container.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../root/root.dart';
+import '../noGroup/noGroup.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
+
+  launchURL(String url) async {
+    final uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void _gotoNoGroup(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const OurNoGroup(),
+      ),
+    );
+  }
 
   void _signOut(BuildContext context) async {
     User? currentUser = Provider.of<User?>(context, listen: false);
@@ -37,7 +57,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   const Text(
-                    "Resource 1",
+                    "CS Fundamentals",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.blueGrey,
@@ -51,7 +71,8 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () => launchURL(
+                        'https://docs.google.com/presentation/d/1jgY7YNEkk3UKFmlFEfX5OFzZtXuOlZeG/edit?usp=sharing&ouid=105306396148105723971&rtpof=true&sd=true'),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40.0),
                       child: Text("Lesgooo"),
@@ -67,7 +88,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   const Text(
-                    "Resource 2",
+                    "Network Layer Security",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.blueGrey,
@@ -81,7 +102,8 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () => launchURL(
+                        'https://docs.google.com/presentation/d/15v8n2nkLOpDtqLKfhxQnLpjG5HZA1Ok86NKwPho0K9E/edit?usp=sharing'),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40.0),
                       child: Text("Lesgooo"),
@@ -121,6 +143,9 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(
+            height: 200,
+          ),
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 120.0, vertical: 15.0),
@@ -132,8 +157,8 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              onPressed: () {},
-              child: const Text("data"),
+              onPressed: () => _gotoNoGroup(context),
+              child: const Text("History"),
             ),
           ),
           const SizedBox(
