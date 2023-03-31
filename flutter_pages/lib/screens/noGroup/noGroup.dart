@@ -1,6 +1,8 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_pages/screens/home/home.dart';
-import 'package:flutter_pages/screens/noGroup/createFile.dart';
+import 'package:flutter_pages/screens/noGroup/CreateFile.dart';
 
 class OurNoGroup extends StatelessWidget {
   const OurNoGroup({super.key});
@@ -15,8 +17,6 @@ class OurNoGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void _gotoJoin() {}
-    void _gotoCreate() {}
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -27,16 +27,18 @@ class OurNoGroup extends StatelessWidget {
             padding: const EdgeInsets.all(80.0),
             child: Image.asset("assets/logo-removebg-preview.png"),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 40.0),
-            child: Text(
-              "Welcome to Pages",
-              style: TextStyle(
-                fontSize: 40.0,
-                color: Colors.white70,
-                fontWeight: FontWeight.w400,
+          const Expanded(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 40.0),
+              child: Text(
+                "Welcome to Pages",
+                style: TextStyle(
+                  fontSize: 40.0,
+                  color: Colors.white70,
+                  fontWeight: FontWeight.w400,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           const Padding(

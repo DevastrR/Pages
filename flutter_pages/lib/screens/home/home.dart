@@ -119,7 +119,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   const Text(
-                    "Resource 3",
+                    "Associate Analytics",
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.blueGrey,
@@ -133,7 +133,8 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () => launchURL(
+                        'https://drive.google.com/file/d/1bcADlfn95MDX14aP88xphbQm_k4DNEcU/view?usp=sharing'),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40.0),
                       child: Text("Lesgooo"),
