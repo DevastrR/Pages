@@ -1,13 +1,7 @@
 // ignore_for_file: unused_local_variable
-
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_pages/utils/auth.dart';
 import 'package:flutter_pages/widgets/our_container.dart';
-import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../root/root.dart';
 import '../noGroup/noGroup.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -31,18 +25,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  void _signOut(BuildContext context) async {
-    User? currentUser = Provider.of<User?>(context, listen: false);
-    Future<void> returnString = Auth().signOut();
-
-    Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const OurRoot(),
-        ),
-        (route) => false);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,6 +32,17 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           const SizedBox(
             height: 40,
+          ),
+          const Text(
+            "Resources : ",
+            style: TextStyle(
+              fontSize: 30,
+              fontWeight: FontWeight.bold,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 30,
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
@@ -75,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                         'https://docs.google.com/presentation/d/1jgY7YNEkk3UKFmlFEfX5OFzZtXuOlZeG/edit?usp=sharing&ouid=105306396148105723971&rtpof=true&sd=true'),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40.0),
-                      child: Text("Lesgooo"),
+                      child: Text("Access"),
                     ),
                   ),
                 ],
@@ -106,7 +99,7 @@ class HomeScreen extends StatelessWidget {
                         'https://docs.google.com/presentation/d/15v8n2nkLOpDtqLKfhxQnLpjG5HZA1Ok86NKwPho0K9E/edit?usp=sharing'),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40.0),
-                      child: Text("Lesgooo"),
+                      child: Text("Access"),
                     ),
                   ),
                 ],
@@ -137,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                         'https://drive.google.com/file/d/1bcADlfn95MDX14aP88xphbQm_k4DNEcU/view?usp=sharing'),
                     child: const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40.0),
-                      child: Text("Lesgooo"),
+                      child: Text("Access"),
                     ),
                   ),
                 ],
@@ -148,8 +141,7 @@ class HomeScreen extends StatelessWidget {
             height: 200,
           ),
           Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 120.0, vertical: 15.0),
+            padding: const EdgeInsets.symmetric(horizontal: 120.0, vertical: 0),
             child: ElevatedButton(
               style: ButtonStyle(
                 shape: MaterialStateProperty.all(
@@ -159,39 +151,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               onPressed: () => _gotoNoGroup(context),
-              child: const Text("History"),
-            ),
-          ),
-          const SizedBox(
-            height: 200,
-          ),
-          Center(
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: ElevatedButton(
-                onPressed: () {
-                  _signOut(context);
-                },
-                style: ElevatedButton.styleFrom(
-                  side: const BorderSide(
-                    color: Colors.blue,
-                    width: 2,
-                  ),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  backgroundColor: const Color.fromRGBO(90, 200, 250, 4),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 90),
-                  child: Text(
-                    "Sign Out",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20.0,
-                    ),
-                  ),
-                ),
-              ),
+              child: const Text("Home"),
             ),
           ),
         ],

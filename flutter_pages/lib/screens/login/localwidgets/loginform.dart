@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_pages/screens/home/home.dart';
+import 'package:flutter_pages/screens/noGroup/noGroup.dart';
 import 'package:flutter_pages/screens/signup/signup.dart';
 import 'package:flutter_pages/widgets/our_container.dart';
 
@@ -65,7 +65,7 @@ class _OurLoginFormState extends State<OurLoginForm> {
             ),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const HomeScreen(),
+                builder: (context) => const OurNoGroup(),
               ));
             },
           ),

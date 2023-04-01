@@ -11,11 +11,19 @@ class OurCreateForm extends StatelessWidget {
     return OurContainer(
       child: Column(
         children: <Widget>[
-          const SizedBox(
-            height: 10.0,
+          const Padding(
+            padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+            child: Text(
+              "Request to add resource :",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
           ),
           const Padding(
-            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 8.0),
+            padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 8.0),
           ),
           TextFormField(
             decoration: const InputDecoration(

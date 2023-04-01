@@ -1,8 +1,13 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, avoid_print
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pages/screens/home/home.dart';
 import 'package:flutter_pages/screens/noGroup/CreateFile.dart';
+import 'package:provider/provider.dart';
+
+import '../../root/root.dart';
+import '../../utils/auth.dart';
 
 class OurNoGroup extends StatelessWidget {
   const OurNoGroup({super.key});
@@ -15,21 +20,62 @@ class OurNoGroup extends StatelessWidget {
     );
   }
 
+  void _signOut(BuildContext context) async {
+    User? currentUser = Provider.of<User?>(context, listen: false);
+    Future<void> returnString = Auth().signOut();
+    if (currentUser != null) {
+      print(currentUser);
+    }
+    Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const OurRoot(),
+        ),
+        (route) => false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          const Spacer(
-            flex: 1,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(260, 30, 0, 10),
+            child: ElevatedButton(
+              onPressed: () {
+                _signOut(context);
+              },
+              style: ElevatedButton.styleFrom(
+                side: const BorderSide(
+                  color: Colors.blue,
+                  width: 2,
+                ),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                backgroundColor: const Color.fromRGBO(90, 200, 250, 4),
+              ),
+              child: const Padding(
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+                child: Text(
+                  "Sign Out",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 17.0,
+                  ),
+                ),
+              ),
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.all(80.0),
+            padding: const EdgeInsets.all(40.0),
             child: Image.asset("assets/logo-removebg-preview.png"),
           ),
           const Expanded(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 40.0),
+              padding: EdgeInsets.symmetric(
+                horizontal: 40.0,
+              ),
               child: Text(
                 "Welcome to Pages",
                 style: TextStyle(
@@ -42,7 +88,7 @@ class OurNoGroup extends StatelessWidget {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(10.0),
             child: Text(
               "Since you are not accessing you can either access or add",
               style: TextStyle(
