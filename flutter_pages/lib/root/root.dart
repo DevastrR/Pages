@@ -20,7 +20,6 @@ class OurRoot extends StatefulWidget {
 
 class _OurRootState extends State<OurRoot> {
   final AuthStatus _authStatus = AuthStatus.notLoggedIn;
-
   @override
   void didChangeDependencies() async {
     super.didChangeDependencies();
