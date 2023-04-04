@@ -65,7 +65,7 @@ class _OurSignupFormState extends State<OurSignupForm> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 100),
         child: Text(
-          isLogin ? 'Login' : 'Register',
+          isLogin ? 'Register' : 'Login',
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -83,7 +83,7 @@ class _OurSignupFormState extends State<OurSignupForm> {
           isLogin = !isLogin;
         });
       },
-      child: Text(isLogin ? 'Register' : 'Login'),
+      child: Text(isLogin ? 'Login' : 'Register'),
     );
   }
 
