@@ -25,9 +25,11 @@ class _OurSignupFormState extends State<OurSignupForm> {
         password: passwordController.text,
       );
     } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
+      setState(
+        () {
+          errorMessage = e.message;
+        },
+      );
     }
   }
 
@@ -43,16 +45,6 @@ class _OurSignupFormState extends State<OurSignupForm> {
       });
     }
   }
-
-  // Widget _entryField(
-  //   String title,
-  //   TextEditingController controller,
-  // ) {
-  //   return TextField(
-  //     controller: controller,
-  //     decoration: InputDecoration(labelText: title),
-  //   );
-  // }
 
   Widget _errorMessage() {
     return Text(errorMessage == '' ? '' : 'Humm ? $errorMessage');
@@ -146,24 +138,6 @@ class _OurSignupFormState extends State<OurSignupForm> {
           const SizedBox(
             height: 20.0,
           ),
-          // ElevatedButton(
-          //   child: const Padding(
-          //     padding: EdgeInsets.symmetric(horizontal: 100),
-          //     child: Text(
-          //       "Sign Up",
-          //       style: TextStyle(
-          //         color: Colors.white,
-          //         fontWeight: FontWeight.bold,
-          //         fontSize: 20.0,
-          //       ),
-          //     ),
-          //   ),
-          //   onPressed: () {
-          //     Navigator.of(context).push(MaterialPageRoute(
-          //       builder: (context) => HomeScreen(),
-          //     ));
-          //   },
-          // ),
           _submitButton(),
           _loginOrRegister(),
         ],
